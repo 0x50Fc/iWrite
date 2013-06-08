@@ -1,0 +1,63 @@
+
+<report>
+    <version>1</version>
+    <form action="" method="post">
+        <field type="String" name="name">
+            <label>姓名</label>
+            <editor type="text"></editor>
+            <editor type="voice"></editor>
+        </field>
+        <field type="String" name="gender">
+            <label>性别</label>
+            <editor type="text"></editor>
+            <editor type="options">
+                <option value="M">男</option>
+                <option value="F">女</option>
+            </editor>
+        </field>
+        
+        <field type="Boolean" name="seeSummary">
+            <label></label>
+            <editor type="options">
+                <option value="true">好</option>
+                <option value="false">不看</option>
+            </editor>
+        </field>
+        
+        <field type="Date" name="date">
+            <label>日期</label>
+            <editor type="date"></editor>
+        </field>
+        
+        <field type="String" name="diagnose">
+            <label>诊断</label>
+            <editor type="rich"></editor>
+            <editor type="voice"></editor>
+        </field>
+        
+    </form>
+    <direct>
+        <note>请选择你的性别</note>
+        <item field="gender"></item>
+        <switch field="gender">
+            <case value="M">
+                <note>你好先生, 请问您的姓名是什么?</note>
+            </case>
+            <default>
+                <note>你好女士, 请问您的姓名是什么?</note>
+            </default>
+        </switch>
+        <item field="name"></item>
+        <note>你好{name}, 需要看下我们工作室的简介吗?</note>
+        <item field="seeSummary"></item>
+        
+        <switch field="seeSummary">
+            <case value="true">
+                <note></note>
+            </case>
+        </switch>
+    </direct>
+    <view>
+    
+    </view>
+</report>
